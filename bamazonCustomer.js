@@ -57,7 +57,7 @@ function checkQTY(type, item, units) {
             order();
         } else {
             newQuantity = res[0].stock_quantity - units;
-            total       = res[0].price * units
+            total       = (res[0].price * units).toFixed(2);
             if(units >= 0) {
                 connection.query("UPDATE products SET stock_quantity = " + newQuantity + " WHERE " + type + ' = ' + '"' + item + '"') ;
                 console.log("Your total is " + total);
